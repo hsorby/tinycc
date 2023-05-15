@@ -1223,6 +1223,8 @@ ST_FUNC int classify_x86_64_va_arg(CType *ty)
 ST_FUNC int gfunc_sret(CType *vt, int variadic, CType *ret, int *ret_align, int *regsize)
 {
     int size, align, reg_count;
+
+    UNUSED(variadic);
     *ret_align = 1; // Never have to re-align return values for x86-64
     *regsize = 8;
     return (classify_x86_64_arg(vt, ret, &size, &align, &reg_count) != x86_64_mode_memory);
@@ -2264,6 +2266,8 @@ ST_FUNC void gen_vla_result(int addr) {
 ST_FUNC void gen_vla_alloc(CType *type, int align) {
     int use_call = 0;
 
+    UNUSED(type);
+    UNUSED(align);
 #if defined(CONFIG_TCC_BCHECK)
     use_call = tcc_state->do_bounds_check;
 #endif

@@ -116,6 +116,7 @@ ST_FUNC unsigned create_plt_entry(TCCState *s1, unsigned got_offset, struct sym_
     int modrm;
     unsigned plt_offset, relofs;
 
+    UNUSED(attr);
     modrm = 0x25;
 
     /* empty PLT: create PLT0 entry that pushes the library identifier

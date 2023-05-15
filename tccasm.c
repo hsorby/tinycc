@@ -28,6 +28,7 @@ static int asmgoto_n;
 static int asm_get_prefix_name(TCCState *s1, const char *prefix, unsigned int n)
 {
     char buf[64];
+    UNUSED(s1);
     snprintf(buf, sizeof(buf), "%s%u", prefix, n);
     return tok_alloc_const(buf);
 }
@@ -405,6 +406,7 @@ static Sym* asm_new_label1(TCCState *s1, int label, int is_local,
     Sym *sym;
     ElfSym *esym;
 
+    UNUSED(s1);
     sym = asm_label_find(label);
     if (sym) {
 	esym = elfsym(sym);
@@ -460,6 +462,7 @@ static Sym* set_symbol(TCCState *s1, int label)
 
 static void use_section1(TCCState *s1, Section *sec)
 {
+    UNUSED(s1);
     cur_text_section->data_offset = ind;
     cur_text_section = sec;
     ind = cur_text_section->data_offset;

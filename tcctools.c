@@ -99,6 +99,7 @@ ST_FUNC int tcc_tool_ar(TCCState *s1, int argc, char **argv)
     int table = 0;
     int verbose = 0;
 
+    UNUSED(s1);
     i_lib = 0; i_obj = 0;  // will hold the index of the lib and first obj
     for (i = 1; i < argc; i++) {
         const char *a = argv[i];

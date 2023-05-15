@@ -23,7 +23,7 @@
 
 #define _GNU_SOURCE
 #define _DARWIN_C_SOURCE
-#include "config.h"
+#include "tcc_config.h"
 
 #include <stdarg.h>
 #include <stdlib.h>
@@ -396,6 +396,8 @@ extern long double strtold (const char *__nptr, char **__endptr);
 #define ST_FUNC
 #define ST_DATA extern
 #endif
+
+#define UNUSED(x) (void)x
 
 #ifdef TCC_PROFILE /* profile all functions */
 # define static

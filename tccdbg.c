@@ -492,6 +492,7 @@ static void put_stabs(TCCState *s1, const char *str, int type, int other, int de
 static void put_stabs_r(TCCState *s1, const char *str, int type, int other, int desc,
                         unsigned long value, Section *sec, int sym_index)
 {
+    UNUSED(sec);
     put_elf_reloc(symtab_section, stab_section,
                   stab_section->data_offset + 8,
                   sizeof ((Stab_Sym*)0)->n_value == PTR_SIZE ? R_DATA_PTR : R_DATA_32,

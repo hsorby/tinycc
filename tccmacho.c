@@ -499,6 +499,7 @@ static struct segment_command_64 * get_segment(struct macho *mo, int i)
 
 static int add_section(struct macho *mo, struct segment_command_64 **_seg, const char *name)
 {
+    UNUSED(mo);
     struct segment_command_64 *seg = *_seg;
     int ret = seg->nsects;
     struct section_64 *sec;
@@ -1517,6 +1518,7 @@ static void node_free(struct trie_node *node)
 
 static int triecmp(const void *_a, const void *_b, void *arg)
 {
+    UNUSED(arg);
     struct trie_info *a = (struct trie_info *) _a;
     struct trie_info *b = (struct trie_info *) _b;
     int len_a = strlen(a->name);
@@ -2316,6 +2318,7 @@ ST_FUNC int macho_load_tbd(TCCState* s1, int fd, const char* filename, int lev)
     char *soname, *data, *pos;
     int ret = -1;
 
+    UNUSED(filename);
     pos = data = tcc_load_text(fd);
     if (!tbd_parse_movepast("install-name: ")) goto the_end;
     tbd_parse_skipws;

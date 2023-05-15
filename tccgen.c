@@ -1768,6 +1768,8 @@ static void store_packed_bf(int bit_pos, int bit_size)
 static int adjust_bf(SValue *sv, int bit_pos, int bit_size)
 {
     int t;
+    UNUSED(bit_pos);
+    UNUSED(bit_size);
     if (0 == sv->type.ref)
         return 0;
     t = sv->type.ref->auxtype;
